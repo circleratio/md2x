@@ -1,0 +1,47 @@
+% -*- coding: utf-8; -*-
+\RequirePackage{plautopatch}
+\documentclass[uplatex,dvipdfmx,12pt,aspectratio=169]{beamer}
+
+\usepackage{otf}
+\usepackage{pxjahyper} %日本語対応のしおり
+
+\usetheme{<% document_theme %>}
+
+\renewcommand{\kanjifamilydefault}{\gtdefault} %日本語フォントをゴシックに
+\usepackage{graphicx} % 画像の読み込み
+\usepackage[absolute,overlay]{textpos} % 画像を絶対位置指定で配置
+\usepackage{listings, jlisting} % コードの引用
+\usepackage{amsmath,amssymb} % 数式表現を拡張
+\usepackage{booktabs} % 表の罫線を美しく
+\usepackage{colortbl} % 表をカラーで作成
+\usepackage{ulem} % 取り消し線
+\usepackage{GoSans} 
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ citecolor=blue,
+ linkcolor=blue,
+ urlcolor=blue
+}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\lstset{
+  backgroundcolor={\color[gray]{.9}},
+  basicstyle={\small},
+  identifierstyle={\small}
+}
+
+\renewcommand{\arraystretch}{1.2}
+\setbeamertemplate{navigation symbols}{}
+
+\definecolor{DarkBlue}{rgb}{0, 0, 0.54}
+\setbeamercolor{QuoteBox}{fg=white, bg=DarkBlue}
+
+<% header %>
+
+\begin{document}
+
+<% document_body %>
+
+\end{document}

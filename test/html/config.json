@@ -1,0 +1,4 @@
+{
+    "html.header":"<meta charset=\"UTF-8\">\n<title>{}</title>\n\n",
+    "html.compose_html":"true"
+}

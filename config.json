@@ -1,0 +1,12 @@
+{
+    "html.header":"<meta charset=\"UTF-8\">\n<title>{}</title>\n",
+    "html.footer":"",
+    "html.compose_html":"true",
+    "latex.template":"template/latex.tex",
+    "latex.footer.right":"",
+    "latex.footer.left":"",
+    "beamer.template":"template/beamer.tex",
+    "beamer.theme":"Metropolis",
+    "beamer.quote.width":"0.9",
+    "snippet_path":"snippet"
+}
