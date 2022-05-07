@@ -1,0 +1,55 @@
+% -*- coding: utf-8; -*-
+\documentclass[lualatex,a4paper,ja=standard,12pt]{bxjsarticle}
+\geometry{top=10mm,left=20mm,bottom=10mm,right=20mm} 
+\usepackage{luatexja-fontspec}
+\usepackage{graphicx} % 画像の読み込み
+\usepackage{listings} % コードの引用
+\usepackage{amsmath,amssymb} % 数式表現を拡張
+\usepackage{booktabs} % 表の罫線を美しく
+\usepackage{ulem} % 取り消し線
+\usepackage{GoSans}
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ citecolor=blue,
+ linkcolor=blue,
+ urlcolor=blue
+}
+\usepackage{fancyhdr} % ヘッダ，フッタ
+
+\setlength{\parskip}{1.1ex}
+
+\setmainfont{Meiryo}
+\setmainjfont[
+  YokoFeatures={JFM=prop}, %JFMを指定する
+]{Meiryo}
+
+\pagestyle{fancy}
+\lhead{}
+\chead{}
+\rhead{}
+\lfoot{\tiny{<% footer_left %>}}
+\cfoot{\thepage}
+\rfoot{\tiny{<% footer_right %>}}
+\renewcommand{\headrulewidth}{0.0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\makeatletter
+\renewcommand{\@maketitle}{\newpage
+\begin{center}
+  {\Large \bf \@title}
+\end{center}
+\hfill  {\@date \par}
+\hfill  {\lineskip .5em \@author \par}
+\vskip 0.5em}
+\makeatother
+
+<% header %>
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+<% document_body %>
+
+\end{document}
