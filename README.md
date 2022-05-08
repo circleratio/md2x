@@ -30,16 +30,16 @@ This script collection works on Python + TexLive environment.
 3. Add md2x directory to your execution path.
 
 ## Customization
-You have four ways to set document:
-1. <system root>/config.json
+You have four ways to set document options:
+1. <application root>/config.json
 2. ~/.md2x/config.json
 3. <document root>/config.json
-4. frontmatter in the markdown
+4. frontmatter in a markdown document
 
 A lower option overwrites upper ones. 
 
 ## Write and compile documents
-See sample files in md2y/test directory.
+See sample files in <application root>/test directory.
 
 # Document options
 
