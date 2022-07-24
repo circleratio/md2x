@@ -338,11 +338,11 @@ def format_text(text, config):
                 text = re.sub(r'!\[([^]]+)\]\(([^)]+)\)', '\\\\begin{textblock*}' + opt_abs + '\\n\\\\centering\\\\includegraphics[' + opt_rel + ']{' + f + '}\\n\\\\end{textblock*}\\n', text)
 
         if m2:
-            s = '\\\\href{' + m2.group(2) + '}{' + m2.group(1) + '}\n'
+            s = '\\\\href{' + url_quote(m2.group(2)) + '}{' + m2.group(1) + '}\n'
             text = re.sub(r'\[([^]]+)\]\(([^)]+)\)', s, text)
         
         if m3:
-            s = '\\\\url{' + m3.group(1) + '}\n'
+            s = '\\\\url{' + url_quote(m3.group(1)) + '}\n'
             text = re.sub(r'\[\]\(([^)]+)\)', s, text)
     else:
         m = re.search(r'#', text)
@@ -350,6 +350,11 @@ def format_text(text, config):
             text = re.sub(r'#', '\\#', text)
     
     return text
+
+def url_quote(url):
+    url = url.replace('_', '\_')
+    url = url.replace('%', '\%')
+    return(url)
 
 def output_latex_paragraph(di, config):
     text = format_text(di.content, config)

@@ -114,7 +114,7 @@ URLをそのまま載せる場合:
 [](http://www.google.com)
 
 * [G](http://www.google.com)
-* [](http://www.apple.com)
+* [](https://www.apple.com/us/shop/goto/buy_accessories)
 
 1. [F](http://www.facebook.com)
 2. [](http://www.amazon.com)
