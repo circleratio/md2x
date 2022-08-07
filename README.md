@@ -18,7 +18,8 @@ This script collection works on Python + TexLive environment.
 * TeX libralies
   - [jlisting.sty](https://osdn.net/projects/mytexpert/downloads/26068/jlisting.sty.bz2/)
 * [Python](https://www.python.org)
-* Python libralies 
+* Python libralies
+  - numpy
   - reportlab for the image creation extention
   - win32com for pptx-pdf convert (it works only on Windows)
 
