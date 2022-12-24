@@ -15,6 +15,9 @@ from reportlab.lib.enums import TA_CENTER
 import mdfig.StepUp
 import mdfig.Desc
 
+LOCAL_TTFONT = 'c:/Windows/Fonts/meiryo.ttc'
+#LOCAL_TTFONT = 'c:/usr/md2x/fonts/07やさしさゴシック.ttf'
+
 def stringBox(canvas, text, font_size, text_color, stroke_color, fill_color, x, y, width, height, radius, margin):
     canvas.setDash([])
     canvas.setStrokeColorRGB(stroke_color[0]/256,
@@ -28,7 +31,7 @@ def stringBox(canvas, text, font_size, text_color, stroke_color, fill_color, x, 
 
     style_dict = {
         "name":"normal",
-        "fontName":"Meiryo UI",
+        "fontName":"LocalTTFont",
         "fontSize":font_size,
         "leading":font_size,
         "alignment":TA_CENTER,
@@ -108,7 +111,7 @@ def generatePDFFigure(type, size, args, outfile):
     # bottomup=False にすると，Paragraphがうまく動作しない．テキストと枠がずれる．
     c = canvas.Canvas(tmpfile, pagesize=landscape(A4), bottomup=True)
     
-    pdfmetrics.registerFont(TTFont('Meiryo UI', 'c:/Windows/Fonts/meiryo.ttc'))
+    pdfmetrics.registerFont(TTFont('LocalTTFont', LOCAL_TTFONT))
     
     if type == 1:
         mdfig.StepUp.StepUp(c, args, color_theme, size[0]*mm, size[1]*mm, size[2]*mm, size[3]*mm)

@@ -16,7 +16,7 @@ def Desc(canvas, texts, color_theme, x, y, width, height):
 
     style_dict = {
         "name":"normal",
-        "fontName":"Meiryo UI",
+        "fontName":"LocalTTFont",
         "fontSize":24,
         "leading":24,
         "alignment":TA_CENTER,
@@ -25,7 +25,7 @@ def Desc(canvas, texts, color_theme, x, y, width, height):
     
     style_dict = {
         "name":"normal",
-        "fontName":"Meiryo UI",
+        "fontName":"LocalTTFont",
         "fontSize":20,
         "leading":20,
         "alignment":TA_JUSTIFY,
