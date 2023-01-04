@@ -3,6 +3,7 @@ import sys
 import datetime as dt
 
 import const
+import html_writer
 
 p_counter = 1
 p_in_section_counter = 1
@@ -94,84 +95,10 @@ def output_journal_code(di):
     return (buf)
 
 def output_journal_itemize(di):
-    #depth_prev = 0
-    depth = 0
-    tab_prev = 0
-    tab = 0
-    step = 0
-    buf = ''
-    
-    # find step
-    for l in di.content:
-        m = re.match(r'^( *)\* *', l)
-        if m:
-            tab = len(m.group(1))
-            if tab > 0:
-                step = tab
-                break
-
-    buf += '<ul>\n'
-    for l in di.content:
-        m = re.match(r'^( *)\* *', l)
-        if m:
-            tab = len(m.group(1))
-            if tab > 0 and step > 0:
-                tab = tab // step
-            l = re.sub(r'^ *\* *', '', l)
-            if tab > tab_prev:
-                for i in range(tab - tab_prev):
-                    buf += '<ul>\n'
-                    depth = depth + 1
-            elif tab_prev > tab:
-                for i in range(tab_prev - tab):
-                    buf += '</ul>\n'
-                    depth = depth - 1
-        buf += '<li>' + l + '</li>\n'
-        #depth_prev = depth
-        tab_prev = tab
-    for i in (range(depth + 1)):
-        buf += '</ul>\n'
-    return(buf)
+    return(html_writer.output_html_itemize(di))
 
 def output_journal_enumerate(di):
-    #depth_prev = 0
-    depth = 0
-    tab_prev = 0
-    tab = 0
-    step = 0
-    buf = ''
-    
-    # find step
-    for l in di.content:
-        m = re.match(r'^( *)[0-9]+\. *', l)
-        if m:
-            tab = len(m.group(1))
-            if tab > 0:
-                step = tab
-                break
-
-    buf += '<ol>\n'
-    for l in di.content:
-        m = re.match(r'^( *)[0-9]+\. *', l)
-        if m:
-            tab = len(m.group(1))
-            if tab > 0 and step > 0:
-                tab = tab // step
-            l = re.sub(r'^( *)[0-9]+\. *', '', l)
-            if tab > tab_prev:
-                for i in range(tab - tab_prev):
-                    buf += '<ol>\n'
-                    depth = depth + 1
-            elif tab_prev > tab:
-                for i in range(tab_prev - tab):
-                    buf += '</ol>\n'
-                    depth = depth - 1
-        buf += '<li>' + l + '</li>\n'
-        #depth_prev = depth
-        tab_prev = tab
-    for i in (range(depth + 1)):
-        buf += '</ol>\n'
-    return(buf)
+    return(html_writer.output_html_enumerate(di))
 
 def output_journal_paragraph(di):
     global p_counter
