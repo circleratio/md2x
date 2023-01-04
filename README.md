@@ -2,7 +2,7 @@
 md2x: Convert Markdown document to other formats 
 
 # Overview
-This scripte converts a markdown file to other formats; HTML, plain text, Beamer(LaTeX presentation) and LaTeX.
+This script converts a markdown file to other formats; HTML, plain text, Beamer(LaTeX presentation) and LaTeX.
 
 This software is still under development and there are many missing functionalities.
 You should use other existing converters, which are more stable, unless you want following charactaristics. 
