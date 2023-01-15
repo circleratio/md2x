@@ -3,6 +3,7 @@ import numpy as np
 import pathlib
 import subprocess
 import sys
+import platform
 import reportlab.lib.colors as colors
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.platypus import Paragraph
@@ -15,8 +16,15 @@ from reportlab.lib.enums import TA_CENTER
 import mdfig.StepUp
 import mdfig.Desc
 
-LOCAL_TTFONT = 'c:/Windows/Fonts/meiryo.ttc'
-#LOCAL_TTFONT = 'c:/usr/md2x/fonts/07やさしさゴシック.ttf'
+s = platform.system()
+if s == 'Windows':
+    LOCAL_TTFONT = 'c:/Windows/Fonts/meiryo.ttc'
+    #LOCAL_TTFONT = 'c:/usr/md2x/fonts/07やさしさゴシック.ttf'
+elif s == 'Linux':
+    LOCAL_TTFONT = '/usr/share/fonts/truetype/vlgothic/VL-Gothic-Regular.ttf'
+    #LOCAL_TTFONT = '/home/tf/work/md2x/fonts/07やさしさゴシック.ttf'
+else:
+    LOCAL_TTFONT = 'unknown'
 
 def stringBox(canvas, text, font_size, text_color, stroke_color, fill_color, x, y, width, height, radius, margin):
     canvas.setDash([])
