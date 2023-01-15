@@ -127,7 +127,7 @@ def generatePDFFigure(type, size, args, outfile):
     #pdfcrop = 'c:/texlive/2021/bin/win32/pdfcrop.exe'
     pdfcrop = 'pdfcrop'
     cmd = f'{pdfcrop} {tmpfile} {outfile}'
-    subprocess.call(cmd)
+    subprocess.call(cmd.split())
     
 if __name__ == "__main__":
     FILENAME = 'stepup.pdf'
