@@ -72,7 +72,9 @@ def render(doctree, config):
     doctree.result = buf
 
 def output_latex_header1(di):
-    if di.content == 'newpage':
+    if di.content == 'toc':
+        return('\\tableofcontents')
+    elif di.content == 'newpage':
         return('\\newpage')
     return('\\section{' + di.content + '}\n')
     

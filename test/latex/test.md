@@ -3,6 +3,7 @@ title: LaTeX文書のテスト
 author: Teruyoshi Fujiwara
 date: today
 ---
+# toc
 # はじめに
 md2xはマークダウン形式のファイルを様々なフォーマットに整形するツールです．
 

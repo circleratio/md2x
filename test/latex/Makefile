@@ -8,6 +8,7 @@ all: $(TARGET)
 
 %.pdf: %.tex
 	lualatex $<
+	lualatex $<
 
 clean:
 	$(RM) *.tex *.aux *.log *.dvi *.nav *.snm *.toc *.out
