@@ -312,6 +312,8 @@ def generate_latex_option(str):
     return [result_type, res_rel, res_abs]
 
 def format_text(text, config):
+    text = escape_latex_directive(text)
+    
     m = re.search(r'\*\*([^\*]+)\*\*', text)
     if m:
         text = re.sub(r'\*\*([^\*]+)\*\*', '\\\\textgt{\\1}', text)
@@ -352,6 +354,10 @@ def format_text(text, config):
             text = re.sub(r'#', '\\#', text)
     
     return text
+
+def escape_latex_directive(text):
+    text = text.replace('&', '\&')
+    return(text)
 
 def url_quote(url):
     url = url.replace('_', '\_')
