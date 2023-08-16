@@ -5,9 +5,41 @@
 \useinnertheme{default}
 \useoutertheme{default}
 
+\definecolor{TFBlue}{rgb}{0.0352,0.3516,0.4727}
+\definecolor{TFLightBlue}{rgb}{0.5313,0.7031,0.8945}
+
+\setbeamercolor{frametitle}{fg=TFBlue}
+\setbeamercolor{QuoteBox}{fg=black,bg=TFLightBlue}
+
+\setbeamerfont{frametitle}{parent=structure,size=\large}
+
 \def\endpage {
   \vspace{1.5cm}
   \hfill\Large{Thank You!}
 }
+
+% Redefine styles of frames' title
+\setbeamertemplate{frametitle} {
+  \vspace{0.2cm}
+  \begin{beamercolorbox}[]{frametitle}
+    \usebeamerfont{frametitle}{%
+      \insertframetitle\par%
+    }
+    {%
+      \ifx\insertframesubtitle\@empty%
+      \else
+      \usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par
+      \fi
+      \vspace{-0.2cm}%
+      {
+        \textcolor{TFBlue} {
+          \rule[4pt]{\linewidth}{0.8pt}
+        }
+      }
+    }%
+  \end{beamercolorbox}%
+  \vspace{-0.75cm}
+}
+
 \mode
 <all>
