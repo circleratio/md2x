@@ -27,6 +27,8 @@ def render(doctree, config):
             doctree.result.append(output_html_itemize(di))
         elif di.type == const.ENUM:
             doctree.result.append(output_html_enumerate(di))
+        elif di.type == const.TABLE:
+            doctree.result.append(output_html_table(di))
         else:
             print('Warning: Unknown DocItem: ' + str(di.type), file=sys.stderr)
     if config['html.compose_html'] == 'true':
@@ -147,3 +149,44 @@ def output_html_paragraph(di):
         text = re.sub(r'\[([^]]+)\]\(([^)]+)\)', '<a href="\\2">\\1</a>', text)
 
     return('<p>\n' + text + '\n</p>\n')
+
+def strip_vertical_bar(s):
+    s = re.sub('^\| *', '', s)
+    s = re.sub(' *\|$', '', s)
+    s = re.sub(' *\| *', '|', s)
+    return(s.split('|'))
+
+def output_html_table(di):
+    buf = ''
+
+    if len(di.content) < 3:
+        print('Error: invalid tabular format.', file=sys.stderr)
+        exit(1)
+        
+    header = strip_vertical_bar(di.content[0])
+    
+    fmt = strip_vertical_bar(re.sub('-+', '-', di.content[1]))
+    align = []
+    for s in fmt:
+        if s == ':-':
+            align.append('left')
+        elif s == '-:':
+            align.append('right')
+        elif s == ':-:':
+            align.append('center')
+        else:
+            align.append('left') # default
+
+    print(align)
+    buf += '<table>\n'
+    buf += '<tr><th>' + '</th><th>'.join(header) + '</th></tr>\n'
+    for l in di.content[2:]:
+        l = strip_vertical_bar(l)
+        buf += '<tr>\n'
+        i = 0
+        for item in l:
+            buf += '<td align="{}">{}</td>'.format(align[i], item)
+            i += 1
+        buf += '</tr>\n'
+    buf += '</table>'
+    return(buf)

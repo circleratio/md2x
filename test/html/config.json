@@ -1,4 +1,4 @@
 {
-    "html.header":"<meta charset=\"UTF-8\">\n<title>{}</title>\n\n",
+    "html.header":"<meta charset=\"UTF-8\">\n<link rel=\"stylesheet\" href=\"style.css\">\n<title>{}</title>\n",
     "html.compose_html":"true"
 }

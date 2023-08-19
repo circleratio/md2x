@@ -126,3 +126,15 @@ CSSは markdown ファイルと同じ場所に置いておくと上記のファ�
   1. アイテム3
     1. アイテム4
 1. アイテム5
+
+# table
+表の例。
+
+| Left align | Right align | Center align |
+|:-----------|------------:|:------------:|
+| This       | This        | This         |
+| column     | column      | column       |
+| will       | will        | will         |
+| be         | be          | be           |
+| left       | right       | center       |
+| aligned    | aligned     | aligned      |
