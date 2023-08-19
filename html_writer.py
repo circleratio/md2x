@@ -177,7 +177,6 @@ def output_html_table(di):
         else:
             align.append('left') # default
 
-    print(align)
     buf += '<table>\n'
     buf += '<tr><th>' + '</th><th>'.join(header) + '</th></tr>\n'
     for l in di.content[2:]:
