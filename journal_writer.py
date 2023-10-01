@@ -7,7 +7,7 @@ import html_writer
 
 p_counter = 1
 p_in_section_counter = 1
-frag = ''
+flag = ''
 id_base = ''
 file_base = ''
 
@@ -101,6 +101,7 @@ def output_journal_enumerate(di):
     return(html_writer.output_html_enumerate(di))
 
 def output_journal_paragraph(di):
+    global flag
     global p_counter
     global p_in_section_counter
     buf = ''
